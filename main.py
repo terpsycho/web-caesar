@@ -3,9 +3,7 @@ from caesar import rotate_string
 app = Flask(__name__)
 app.config['DEBUG'] = True
 
-global form
-"""
-<!DOCTYPE html>
+form ="""<!DOCTYPE html>
 
 <html>
     <head>
@@ -36,11 +34,17 @@ global form
 """
 
 
+#@app.route("/" methods= ['POST']) 
+#def encrypt():
+#Within encrypt, store the values of these 
+#request parameters in local variables, 
+#converting data types as necessary. Then, encrypt the value 
+#of the text parameter using rotate_string. Return the encrypted 
+#string wrapped in <h1> tags, to be rendered in the browser.
+
 @app.route("/")
 def index():
-    return (form)
-#@app.route("/" methods= ['POST']) 
-def encrypt():
-#Within encrypt, store the values of these request parameters in local variables, converting data types as necessary. Then, encrypt the value of the text parameter using rotate_string. Return the encrypted string wrapped in <h1> tags, to be rendered in the browser.
+    return form
+
 
 app.run()
