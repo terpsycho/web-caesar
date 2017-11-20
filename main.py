@@ -8,25 +8,25 @@ form ="""<!DOCTYPE html>
 <html>
     <head>
         <style>
-            form {
+            form {{
                 background-color: #eee;
                 padding: 20px;
                 margin: 0 auto;
                 width: 540px;
                 font: 16px sans-serif;
                 border-radius: 10px;
-            }
-            textarea {
+            }}
+            textarea {{
                 margin: 10px 0;
                 width: 540px;
                 height: 120px;
-            }
+            }}
         </style>
     </head>
     <body>
       <form action="/encrypt "method="post">
         Rotate by: <input type="text" name="rot"> <br>
-        <textarea type="text" name="message"></textarea> <br>
+        <textarea type="text" name="message">{0}</textarea> <br>
         <input type="submit" value="Submit Inquiry">
         </form>
     </body>
@@ -41,7 +41,7 @@ def encrypt():
     rotation = int(rotation)
     encrypted_message = str(encrypted_message)
     cypher = rotate_string(encrypted_message, rotation)
-    return '<h1>' + cypher + '</h1>'
+    return form.format(cypher)
 
 #Within encrypt, store the values of these 
 #request parameters in local variables, 
@@ -51,7 +51,7 @@ def encrypt():
 
 @app.route("/")
 def index():
-    return form
+    return form.format()
 
 
 app.run()
