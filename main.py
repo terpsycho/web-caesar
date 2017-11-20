@@ -24,9 +24,9 @@ form ="""<!DOCTYPE html>
         </style>
     </head>
     <body>
-      <form action=""method="post">
-        Rotate by:<input type="text" name"rot" value=0> <br>
-        <input type="textarea" name"text" > <br>
+      <form action="/encrypt "method="post">
+        Rotate by: <input type="text" name="rot"> <br>
+        <textarea type="text" name="message"></textarea> <br>
         <input type="submit" value="Submit Inquiry">
         </form>
     </body>
@@ -34,8 +34,15 @@ form ="""<!DOCTYPE html>
 """
 
 
-#@app.route("/" methods= ['POST']) 
-#def encrypt():
+@app.route("/encrypt" , methods=['POST']) 
+def encrypt():
+    rotation = request.form['rot']
+    encrypted_message = request.form['message']
+    rotation = int(rotation)
+    encrypted_message = str(encrypted_message)
+    cypher = rotate_string(encrypted_message, rotation)
+    return '<h1>' + cypher + '</h1>'
+
 #Within encrypt, store the values of these 
 #request parameters in local variables, 
 #converting data types as necessary. Then, encrypt the value 
