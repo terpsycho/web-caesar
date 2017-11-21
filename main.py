@@ -32,6 +32,9 @@ form ="""<!DOCTYPE html>
     </body>
 </html>
 """
+@app.route("/")
+def index():
+    return form.format("")
 
 
 @app.route("/encrypt" , methods=['POST']) 
@@ -49,9 +52,6 @@ def encrypt():
 #of the text parameter using rotate_string. Return the encrypted 
 #string wrapped in <h1> tags, to be rendered in the browser.
 
-@app.route("/")
-def index():
-    return form.format()
 
 
 app.run()
