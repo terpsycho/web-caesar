@@ -25,7 +25,7 @@ form ="""<!DOCTYPE html>
     </head>
     <body>
       <form action="/encrypt "method="post">
-        Rotate by: <input type="text" name="rot"> <br>
+        Rotate by: <input type="text" name="rot" value=0> <br>
         <textarea type="text" name="message">{0}</textarea> <br>
         <input type="submit" value="Submit Inquiry">
         </form>
